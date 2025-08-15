@@ -2,8 +2,11 @@ import React from 'react'
 import { FaUser } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import { useState } from 'react';
-import toast  from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
+import { loginUser } from '../../store/slice/user/userThunk.js';
+
+
 
 
 
@@ -16,19 +19,14 @@ const Login = () => {
   password: "",
 });
 const handleLogin = async (e) => {
-  e.preventDefault();
   try {
-
-    const response = await dispatch(loginUserThunk(LoginData)).unwrap();
-    if (data.success) {
-      // Handle successful login, e.g., redirect or show a success message
+    e.preventDefault();
+    const response = await dispatch(loginUser(LoginData)).unwrap();
+    const data = response.payload;
+    
       console.log("Login successful:", data);
       toast.success("Login successful!");
-    } else {
-      // Handle login error
-      console.error("Login failed:", data.message);
-      toast.error(`Login failed: ${data.message}`);
-    }
+    
   } catch (error) {
     console.error("Error during login:", error);
     toast.error("An unexpected error occurred during login");

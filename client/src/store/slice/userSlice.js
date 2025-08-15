@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { loginUserThunk, registerUserThunk } from './user/userThunk.js';
+import { loginUser, registerUser } from './user/userThunk.js';
 
 const userSlice = createSlice({
   name: 'user',
@@ -13,22 +13,22 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(loginUserThunk.pending, (state) => {
+      .addCase(loginUser.pending, (state) => {
         console.log("Fetching user by ID...");
       })
-      .addCase(loginUserThunk.fulfilled, (state, action) => {
+      .addCase(loginUser.fulfilled, (state, action) => {
         console.log("User fetched successfully:", action.payload);
       })
-      .addCase(loginUserThunk.rejected, (state, action) => {
+      .addCase(loginUser.rejected, (state, action) => {
         console.error("Failed to fetch user:", action.error);
       })
-      .addCase(registerUserThunk.pending, (state) => {
+      .addCase(registerUser.pending, (state) => {
         console.log("Fetching user by ID...");
       })
-      .addCase(registerUserThunk.fulfilled, (state, action) => {
+      .addCase(registerUser.fulfilled, (state, action) => {
         console.log("User fetched successfully:", action.payload);
       })
-      .addCase(registerUserThunk.rejected, (state, action) => {
+      .addCase(registerUser.rejected, (state, action) => {
         console.error("Failed to fetch user:", action.error);
       });
   }

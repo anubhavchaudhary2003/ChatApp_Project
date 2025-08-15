@@ -11,6 +11,7 @@ import messageRoutes from './Routes/messageRoutes.js';
 
 
 
+
 const app = express();
 app.use(cors({
   origin: "http://localhost:5174", // Allow requests from the frontend URL
