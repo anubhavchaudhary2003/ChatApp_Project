@@ -29,7 +29,7 @@ const newUser = await User.create({
     avatar, 
 });
 const tokenData = {
-        id: user._id,
+        id: newUser._id,
     }
     const tokenSecret = process.env.JWT_SECRET
     const timeOut = process.env.JWT_TIMEOUT || "1d" ; // Default to 24 hours if not set
