@@ -8,7 +8,7 @@ import toast from 'react-hot-toast';
 import { registerUserThunk } from '../../store/slice/user/userThunk.js';
 
 
-const signup = () => {
+const Signup = () => {
 const dispatch = useDispatch();
   const [SignUpData, setSignUpData] = useState({
   fullName: "",
@@ -73,4 +73,4 @@ return (
   )
 }
 
-export default signup
+export default Signup

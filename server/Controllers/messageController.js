@@ -28,7 +28,7 @@ export const sendMessage = asyncHandler(async (req, res, next) => {
         timestamp: new Date()
     });
     if (newMessage) {
-        conversation.message.push(newMessage._id);
+        conversation.messages.push(newMessage._id);
         await conversation.save();
     }
 
