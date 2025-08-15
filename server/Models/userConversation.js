@@ -1,4 +1,4 @@
-import mongoose, { mongo } from 'mongoose';
+import mongoose from 'mongoose';
 const userConversationSchema = new mongoose.Schema({
   sender: {
     type: mongoose.Schema.Types.ObjectId,
@@ -16,10 +16,10 @@ const userConversationSchema = new mongoose.Schema({
     required: true,
   },
   timestamp: {
-    required: true
+    type: Date,
+    default: Date.now
     }
 });
-const UserMessage = mongoose.model('UserMessage', userMessageSchema);
-
-export default UserMessage;
+const UserConversation = mongoose.model('UserConversation', userConversationSchema);
+export default UserConversation;
 

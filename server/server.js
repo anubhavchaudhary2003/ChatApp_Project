@@ -13,10 +13,10 @@ import messageRoutes from './Routes/messageRoutes.js';
 
 const app = express();
 app.use(cors({
-  origin: process.env.FRONTEND_URI, // Allow requests from the frontend URL
+  origin: "http://localhost:5174", // Allow requests from the frontend URL
   credentials: true, // Allow cookies to be sent with requests
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization'] // Allowed headers
+  allowedHeaders: ['Content-Type', 'Authorization','x-custom-header'] // Allowed headers
 })); // Enable CORS for all routes
 app.use(express.json()); // Middleware to parse JSON bodies
 app.use(cookieParser()); // Middleware to parse cookies

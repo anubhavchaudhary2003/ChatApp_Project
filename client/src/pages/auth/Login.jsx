@@ -8,7 +8,9 @@ import { useDispatch } from 'react-redux';
 
 
 
+
 const Login = () => {
+  const dispatch = useDispatch();
   const [LoginData, setLoginData] = useState({
   username: "",
   password: "",
@@ -16,8 +18,8 @@ const Login = () => {
 const handleLogin = async (e) => {
   e.preventDefault();
   try {
-    await dispatch(loginUserThunk(LoginData));
-    const data = await response.json();
+
+    const response = await dispatch(loginUserThunk(LoginData)).unwrap();
     if (data.success) {
       // Handle successful login, e.g., redirect or show a success message
       console.log("Login successful:", data);
@@ -29,7 +31,9 @@ const handleLogin = async (e) => {
     }
   } catch (error) {
     console.error("Error during login:", error);
+    toast.error("An unexpected error occurred during login");
   }
+  
 };
 const handleInputChange = (e) => {
   setLoginData((prev) => ({

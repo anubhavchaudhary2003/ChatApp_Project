@@ -2,6 +2,7 @@ import express from 'express';
 import { getProfile, loginUser, logoutUser, getotherUsers } from '../Controllers/userController.js';
 import { registerUser } from '../Controllers/userController.js';
 import { isAuthenticated } from '../Middlewares/authMiddleware.js';
+
 const Router = express.Router();
 
 
